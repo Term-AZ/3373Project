@@ -99,14 +99,6 @@ int ReadKeys(void)//read the 4 push buttons and interpret the instruction
     }
 }
 
-int ReadPlayer1(void){
-    
-}
-
-int ReadPlayer2(void){
-
-}
-
 void ResetGame(void){
     p1Score=0;
     p2Score=0;
