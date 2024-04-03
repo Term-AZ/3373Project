@@ -128,14 +128,14 @@ void CheckRoundWinner(){
     else if(((p1 %2 ==1 || p1 >4 )&& p1!=1) || p1==0 && p2>0){
         FlashP1();
         p2Score++;
-        DisplayHex1(p1Score, 0);
-        DisplayHex2(p2Score);
+        DisplayHex1(p1, 0);
+        DisplayHex2(p2);
         return;
     }else if (((p2 %2 ==1 || p2 >4) && p2!=1)|| p2==0 && p1>0){
         FlashP2();
         p1Score++;
-        DisplayHex1(p1Score, 0);
-        DisplayHex2(p2Score);
+        DisplayHex1(p1, 0);
+        DisplayHex2(p2);
         return;
     }
 
@@ -144,30 +144,28 @@ void CheckRoundWinner(){
     //2 paper
     //1 scissor
 
-    if(p1 == 4 && p2 ==2){
-        //rock paper
-        p2Score++;
-    }else if(p1==4 && p2==1){
-        //rock scissor
-        p1Score++;
-    }else if(p1 == 2 && p2==4){
-        //paper rock
-        p1Score++;
-    }else if(p1==2 && p2==1){
-        //paper scissor
-        p2Score++;
-    }else if(p1==1 && p2==4){
-        //scissor rock
-        p2Score++;
-    }else if(p1==1 && p2==2){
-        //scissor paper
-        p1Score++;
-    }else if(p1==p2){
+    // if(p1 == 4 && p2 ==2){
+    //     //rock paper
+    //     p2Score++;
+    // }else if(p1==4 && p2==1){
+    //     //rock scissor
+    //     p1Score++;
+    // }else if(p1 == 2 && p2==4){
+    //     //paper rock
+    //     p1Score++;
+    // }else if(p1==2 && p2==1){
+    //     //paper scissor
+    //     p2Score++;
+    // }else if(p1==1 && p2==4){
+    //     //scissor rock
+    //     p2Score++;
+    // }else if(p1==1 && p2==2){
+    //     //scissor paper
+    //     p1Score++;
+    // }
 
-    }
-
-    DisplayHex1(p1Score, 0);
-    DisplayHex2(p2Score);
+    DisplayHex1(p1, 0);
+    DisplayHex2(p2);
 }
 
 void FlashP1(){
@@ -240,20 +238,6 @@ int main(void){
                 if(timerValue==6){
                     CheckRoundWinner();
                     timerValue=0;
-                }
-                if(p1Score ==7){
-                    FlashP1();
-                    ResetGame();
-                    curState= false;
-                    InitDisplay();
-
-                }
-                if(p2Score ==7){
-                    FlashP2();
-                    ResetGame();
-                    curState= false;
-                    InitDisplay();
-
                 }
             }
         }
